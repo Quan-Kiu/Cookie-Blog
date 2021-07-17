@@ -14,6 +14,10 @@ li {
   list-style-type: none;
 }
 
+img {
+  display: inline-block;
+}
+
 *::before,
 *::after {
   -webkit-box-sizing: border-box;
@@ -34,6 +38,7 @@ p {
 }
 
 body {
+  letter-spacing: 1px;
   overflow-x: hidden;
   font-size: 16px;
   font-family: "Poppins", sans-serif;
@@ -102,8 +107,8 @@ body {
 
 .main .navbar #toggle {
   position: relative;
-  width: 50px;
-  height: 50px;
+  width: 30px;
+  height: 30px;
   z-index: 10000;
   display: none;
 }
@@ -117,18 +122,20 @@ body {
 .main .navbar #toggle span::after {
   content: "";
   position: absolute;
-  top: 30%;
+  top: 10%;
   width: 100%;
-  height: 5px;
+  height: 3px;
   background-color: white;
+  -webkit-box-shadow: 0 8.5px 0 white;
+          box-shadow: 0 8.5px 0 white;
 }
 
 .main .navbar #toggle span::before {
   content: "";
   position: absolute;
-  top: 60%;
+  top: 70%;
   width: 100%;
-  height: 5px;
+  height: 3px;
   background-color: white;
 }
 
@@ -186,7 +193,7 @@ body {
 }
 
 .main .content .banner .banner-text .banner-item .banner-name {
-  font-size: 4.5rem;
+  font-size: 4rem;
   letter-spacing: 4px;
   font-weight: 700;
 }
@@ -274,6 +281,7 @@ body {
   padding: 20px 45px;
   background-color: #fcdec0;
   color: #7d5a50;
+  z-index: 1;
 }
 
 .main .content .popular-menu .bg {
@@ -295,7 +303,7 @@ body {
 
 .main .content .popular-menu .desc-section {
   text-align: center;
-  width: 500px;
+  width: 50%;
 }
 
 .main .content .popular-menu .popular-list {
@@ -319,14 +327,10 @@ body {
 
 .main .content .popular-menu .popular-list .popular-item img {
   border-radius: 50%;
-  width: 20vw;
-  height: 20vw;
+  width: 25vw;
+  height: 25vw;
   -o-object-fit: cover;
      object-fit: cover;
-}
-
-.main .content .popular-menu .popular-list .popular-item .desc {
-  padding: 0px 30px;
 }
 
 .main .content .cookie-images {
@@ -365,6 +369,7 @@ body {
 
 .main .content .cookie-images .row .col-2 {
   width: 100%;
+  margin-top: 15px;
   height: 300px;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -379,6 +384,9 @@ body {
 }
 
 @media screen and (max-width: 900px) {
+  .main .navbar .logo {
+    padding: 0;
+  }
   .main .navbar #toggle {
     display: block;
   }
@@ -402,7 +410,7 @@ body {
     -webkit-box-pack: center;
         -ms-flex-pack: center;
             justify-content: center;
-    background-color: rgba(0, 0, 0, 0.7);
+    background-color: rgba(0, 0, 0, 0.767);
   }
   .main .navbar .menu .menu-item {
     font-size: 20px;
@@ -417,6 +425,8 @@ body {
     top: 40% !important;
     -webkit-transform: rotate(45deg);
             transform: rotate(45deg);
+    -webkit-box-shadow: none !important;
+            box-shadow: none !important;
   }
   .main .navbar .active span:before {
     top: 40% !important;
@@ -426,6 +436,17 @@ body {
   .main .content .banner .banner-text {
     width: 100%;
     text-align: center;
+  }
+  .main .content .banner .banner-text .banner-item {
+    min-height: 350px;
+    overflow: hidden;
+  }
+  .main .content .banner .banner-text .banner-item .banner-name {
+    font-size: 3rem;
+  }
+  .main .content .banner .banner-text .banner-item .banner-desc {
+    padding: 0 35px;
+    font-size: 1rem;
   }
   .main .content .banner .control-Slide {
     width: 100%;
@@ -437,17 +458,28 @@ body {
     margin: 15px;
   }
   .main .content .cookie-images .row .col-1 .about-section {
+    padding: 0 20px;
     width: 100%;
   }
   .main .content .cookie-images .row .col-1 .about-section h1 {
     text-align: center;
   }
   .main .content .popular-menu {
+    padding: 0;
     border: #7d5a50 solid 15px;
+  }
+  .main .content .popular-menu .popular-list {
+    margin: 0;
+  }
+  .main .content .popular-menu .popular-list .popular-item .desc {
+    padding: 0px 15px;
   }
 }
 
 @media screen and (max-width: 739px) {
+  .main .content .popular-menu .desc-section {
+    width: 80%;
+  }
   .main .content .popular-menu .popular-list {
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
@@ -455,11 +487,13 @@ body {
             flex-direction: column;
   }
   .main .content .popular-menu .popular-list .popular-item {
+    margin: 20px 0;
     width: 100%;
   }
   .main .content .popular-menu .popular-list .popular-item img {
-    width: 60%;
-    height: 50%;
+    border-radius: 0;
+    width: 70%;
+    height: 70%;
   }
 }
 /*# sourceMappingURL=style.css.map */
