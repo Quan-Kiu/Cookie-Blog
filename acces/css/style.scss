@@ -373,8 +373,6 @@ body {
 
           text-align: center;
           .banner-item {
-            min-height: 350px;
-            overflow: hidden;
             .banner-name {
               font-size: 3rem;
             }
@@ -421,8 +419,34 @@ body {
 }
 
 @media screen and (max-width: 739px) {
+  body {
+    font-size: 14px;
+  }
   .main {
+    .navbar {
+      .logo {
+        font-size: 1.5rem;
+      }
+    }
     .content {
+      .banner {
+        .banner-text {
+          .banner-item {
+            .banner-name {
+              font-size: 2rem;
+            }
+            .banner-desc {
+              padding: 0 25px;
+              font-size: 1rem;
+            }
+          }
+        }
+
+        .control-Slide {
+          width: 100%;
+          justify-content: space-between;
+        }
+      }
       .popular-menu {
         .desc-section {
           width: 80%;

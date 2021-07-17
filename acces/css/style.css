@@ -437,10 +437,6 @@ body {
     width: 100%;
     text-align: center;
   }
-  .main .content .banner .banner-text .banner-item {
-    min-height: 350px;
-    overflow: hidden;
-  }
   .main .content .banner .banner-text .banner-item .banner-name {
     font-size: 3rem;
   }
@@ -477,6 +473,25 @@ body {
 }
 
 @media screen and (max-width: 739px) {
+  body {
+    font-size: 14px;
+  }
+  .main .navbar .logo {
+    font-size: 1.5rem;
+  }
+  .main .content .banner .banner-text .banner-item .banner-name {
+    font-size: 2rem;
+  }
+  .main .content .banner .banner-text .banner-item .banner-desc {
+    padding: 0 25px;
+    font-size: 1rem;
+  }
+  .main .content .banner .control-Slide {
+    width: 100%;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+  }
   .main .content .popular-menu .desc-section {
     width: 80%;
   }
