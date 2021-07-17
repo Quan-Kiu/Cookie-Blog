@@ -34,6 +34,7 @@ p {
 }
 
 body {
+  overflow-x: hidden;
   font-size: 16px;
   font-family: "Poppins", sans-serif;
 }
@@ -41,7 +42,7 @@ body {
 .main .navbar {
   position: absolute;
   width: 100%;
-  z-index: 1000;
+  z-index: 1;
   padding: 15px 32px;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -72,10 +73,11 @@ body {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  text-align: center;
 }
 
 .main .navbar .menu .menu-item {
-  padding: 0 10px;
+  padding: 20px 10px;
 }
 
 .main .navbar .menu .menu-item .active {
@@ -96,6 +98,38 @@ body {
 .main .navbar .menu .menu-item .menu-link:hover {
   background-color: #fdf6f0;
   color: #7d5a50;
+}
+
+.main .navbar #toggle {
+  position: relative;
+  width: 50px;
+  height: 50px;
+  z-index: 10000;
+  display: none;
+}
+
+.main .navbar #toggle span {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+
+.main .navbar #toggle span::after {
+  content: "";
+  position: absolute;
+  top: 30%;
+  width: 100%;
+  height: 5px;
+  background-color: white;
+}
+
+.main .navbar #toggle span::before {
+  content: "";
+  position: absolute;
+  top: 60%;
+  width: 100%;
+  height: 5px;
+  background-color: white;
 }
 
 .main .content .banner {
@@ -285,8 +319,8 @@ body {
 
 .main .content .popular-menu .popular-list .popular-item img {
   border-radius: 50%;
-  width: 300px;
-  height: 300px;
+  width: 20vw;
+  height: 20vw;
   -o-object-fit: cover;
      object-fit: cover;
 }
@@ -297,37 +331,29 @@ body {
 
 .main .content .cookie-images {
   margin: 30px 20px;
-  background-color: #faf1e6;
-}
-
-.main .content .cookie-images .row img {
-  -webkit-transition: 0.3s;
-  transition: 0.3s;
-  opacity: 0.7;
 }
 
 .main .content .cookie-images .row .col-1 {
   position: relative;
   width: 100%;
   height: 100%;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-}
-
-.main .content .cookie-images .row .col-1 img {
-  position: relative;
-  min-width: 25%;
-  -o-object-fit: cover;
-     object-fit: cover;
+  background: url(../image/pexels-diana-akhmetianova-7296681.jpg);
+  background-size: cover;
+  background-position-y: 10%;
 }
 
 .main .content .cookie-images .row .col-1 .about-section {
+  background-color: #f5c6aa83;
   position: relative;
-  min-width: 50%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 40%;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  max-width: 100%;
   color: #0a1d37;
   text-align: justify;
   padding: 0 50px;
@@ -352,9 +378,88 @@ body {
      object-fit: cover;
 }
 
-.main .content .cookie-images .row img:hover {
-  -webkit-transform: scale(1.1);
-          transform: scale(1.1);
-  opacity: 1;
+@media screen and (max-width: 900px) {
+  .main .navbar #toggle {
+    display: block;
+  }
+  .main .navbar .menu {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    visibility: hidden;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    background-color: rgba(0, 0, 0, 0.7);
+  }
+  .main .navbar .menu .menu-item {
+    font-size: 20px;
+  }
+  .main .navbar .active {
+    visibility: unset;
+  }
+  .main .navbar .active span {
+    opacity: 0.7;
+  }
+  .main .navbar .active span:after {
+    top: 40% !important;
+    -webkit-transform: rotate(45deg);
+            transform: rotate(45deg);
+  }
+  .main .navbar .active span:before {
+    top: 40% !important;
+    -webkit-transform: rotate(-45deg);
+            transform: rotate(-45deg);
+  }
+  .main .content .banner .banner-text {
+    width: 100%;
+    text-align: center;
+  }
+  .main .content .banner .control-Slide {
+    width: 100%;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+  }
+  .main .content .cookie-images {
+    margin: 15px;
+  }
+  .main .content .cookie-images .row .col-1 .about-section {
+    width: 100%;
+  }
+  .main .content .cookie-images .row .col-1 .about-section h1 {
+    text-align: center;
+  }
+  .main .content .popular-menu {
+    border: #7d5a50 solid 15px;
+  }
+}
+
+@media screen and (max-width: 739px) {
+  .main .content .popular-menu .popular-list {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+  .main .content .popular-menu .popular-list .popular-item {
+    width: 100%;
+  }
+  .main .content .popular-menu .popular-list .popular-item img {
+    width: 60%;
+    height: 50%;
+  }
 }
 /*# sourceMappingURL=style.css.map */

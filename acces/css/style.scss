@@ -37,6 +37,7 @@ p {
 }
 
 body {
+  overflow-x: hidden;
   font-size: 16px;
   font-family: "Poppins", sans-serif;
 }
@@ -45,7 +46,7 @@ body {
   .navbar {
     position: absolute;
     width: 100%;
-    z-index: 1000;
+    z-index: 1;
     padding: 15px 32px;
     display: flex;
     align-items: center;
@@ -63,8 +64,9 @@ body {
 
     .menu {
       display: flex;
+      text-align: center;
       .menu-item {
-        padding: 0 10px;
+        padding: 20px 10px;
         .active {
           background-color: $white-text;
           color: $brow-color !important;
@@ -81,6 +83,37 @@ body {
             background-color: $white-text;
             color: $brow-color;
           }
+        }
+      }
+    }
+
+    #toggle {
+      position: relative;
+      width: 50px;
+      height: 50px;
+      z-index: 10000;
+      display: none;
+      span {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+
+        &::after {
+          content: "";
+          position: absolute;
+          top: 30%;
+          width: 100%;
+          height: 5px;
+          background-color: white;
+        }
+
+        &::before {
+          content: "";
+          position: absolute;
+          top: 60%;
+          width: 100%;
+          height: 5px;
+          background-color: white;
         }
       }
     }
@@ -231,8 +264,8 @@ body {
           width: calc(100% / 3);
           img {
             border-radius: 50%;
-            width: 300px;
-            height: 300px;
+            width: 20vw;
+            height: 20vw;
             object-fit: cover;
           }
 
@@ -244,28 +277,23 @@ body {
     }
     .cookie-images {
       margin: 30px 20px;
-      background-color: #faf1e6;
 
       .row {
-        img {
-          transition: 0.3s;
-          opacity: 0.7;
-        }
-
         .col-1 {
           position: relative;
           width: 100%;
           height: 100%;
-          display: flex;
-          align-items: center;
-          img {
-            position: relative;
-            min-width: 25%;
-            object-fit: cover;
-          }
+          background: url(../image/pexels-diana-akhmetianova-7296681.jpg);
+          background-size: cover;
+          background-position-y: 10%;
+
           .about-section {
+            background-color: #f5c6aa83;
             position: relative;
-            min-width: 50%;
+            display: flex;
+            width: 40%;
+            flex-direction: column;
+            max-width: 100%;
             color: #0a1d37;
             text-align: justify;
             padding: 0 50px;
@@ -284,9 +312,95 @@ body {
             object-fit: cover;
           }
         }
-        img:hover {
-          transform: scale(1.1);
-          opacity: 1;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 900px) {
+  .main {
+    .navbar {
+      #toggle {
+        display: block;
+      }
+      .menu {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        visibility: hidden;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        background-color: rgba(0, 0, 0, 0.7);
+        .menu-item {
+          font-size: 20px;
+        }
+      }
+      .active {
+        visibility: unset;
+
+        span {
+          opacity: 0.7;
+        }
+        span:after {
+          top: 40% !important;
+          transform: rotate(45deg);
+        }
+
+        span:before {
+          top: 40% !important;
+          transform: rotate(-45deg);
+        }
+      }
+    }
+    .content {
+      .banner {
+        .banner-text {
+          width: 100%;
+          text-align: center;
+        }
+
+        .control-Slide {
+          width: 100%;
+          justify-content: space-between;
+        }
+      }
+      .cookie-images {
+        margin: 15px;
+        .row {
+          .col-1 {
+            .about-section {
+              h1 {
+                text-align: center;
+              }
+              width: 100%;
+            }
+          }
+        }
+      }
+      .popular-menu {
+        border: $brow-color solid 15px;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 739px) {
+  .main {
+    .content {
+      .popular-menu {
+        .popular-list {
+          flex-direction: column;
+          .popular-item {
+            width: 100%;
+            img {
+              width: 60%;
+              height: 50%;
+            }
+          }
         }
       }
     }
